@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cinema</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .navbar {
+      background-color: #111;
+      border-bottom: 2px solid #1e90ff;
+      padding: 10px 0;
+    }
+
+    .navbar-brand img {
+      width: 40px;
+    }
+
+    .navbar-nav .nav-link {
+      color: #ccc;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 10px 15px;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      color: #1e90ff;
+    }
+
+    .navbar-nav .nav-link.active::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #1e90ff;
+      border-radius: 50px;
+    }
+
+    .header-carousel {
+      margin-top: 80px;
+    }
+
+    .header-carousel img {
+      max-height: 500px;
+      object-fit: cover;
+    }
+
+    .section-box {
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #111;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .movie-card {
+      background-color: #222;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+
+    .movie-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px 12px 0 0;
+      object-fit: cover;
+    }
+
+    .movie-card h5 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .movie-card p {
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+
+    .movie-card .card-content {
+      padding: 15px;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    }
+
+    .movie-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.7);
+    }
+
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .filter-bar button {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      margin: 0 10px;
+      text-transform: uppercase;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .filter-bar button:hover,
+    .filter-bar button.active {
+      background-color: #1e90ff;
+    }
+
+    .pagination-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .pagination .page-item .page-link {
+      border-radius: 50px;
+      color: #fff;
+      background-color: #333;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .pagination .page-item .page-link:hover {
+      background-color: #1e90ff;
+      color: #fff;
+    }
+
+    .pagination .page-item.active .page-link {
+      background-color: #1e90ff;
+      border-color: #1e90ff;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <a class="navbar-brand" href="#">
+      <img src="./logo.png" alt="Cinema Logo">
+      Cinema
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="./challenge.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./ch-com.html">Community</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Header Carousel -->
+  <div class="container-fluid header-carousel mt-5">
+    <div id="headerCarousel" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <!-- Images will be dynamically inserted here -->
+      </div>
+      <a class="carousel-control-prev" href="#headerCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#headerCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Section with Cards -->
+  <div class="container section-box">
+    <div class="row" id="movieGrid">
+      <!-- Movie cards will be dynamically inserted here -->
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    // Dynamic content for the carousel
+    const carouselImages = [
+      { img: './header1.jpg', alt: 'Slide 1' },
+      { img: './header2.jpg', alt: 'Slide 2' },
+      { img: './header3.jpg', alt: 'Slide 3' }
+    ];
+
+    const carouselInner = document.querySelector('.carousel-inner');
+    carouselImages.forEach((image, index) => {
+      const carouselItem = document.createElement('div');
+      carouselItem.className = `carousel-item ${index === 0 ? 'active' : ''}`;
+      carouselItem.innerHTML = `<img src="${image.img}" class="d-block w-100" alt="${image.alt}">`;
+      carouselInner.appendChild(carouselItem);
+    });
+
+    // Dynamic content for movie cards
+    const movies = [
+      { title: 'Multiplayer Shooter', img: './movie1.jpg', desc: 'VAIl VR Secures Full Release Next Month', date: '16_Apr_2024' },
+      { title: 'AEXLAB Hosts Tournament', img: './movie2.jpg', desc: 'For VAIL VR With LAN Finals Held in Miami', date: '18_Feb_2024' },
+      { title: 'Movie Title 3', img: './movie3.jpg', desc: 'This is a longer card with supporting text below as a natural lead-in to additional content.', date: '25_Mar_2024' },
+      { title: 'Movie Title 4', img: './movie4.jpg', desc: 'This is a longer card with supporting text below as a natural lead-in to additional content.', date: '15_Apr_2024' },
+      { title: 'Movie Title 5', img: './movie5.jpg', desc: 'This is a longer card with supporting text below as a natural lead-in to additional content.', date: '28_Mar_2024' },
+      { title: 'Movie Title 6', img: './movie6.jpg', desc: 'This is a longer card with supporting text below as a natural lead-in to additional content.', date: '30_Apr_2024' }
+    ];
+
+    const movieGrid = document.getElementById('movieGrid');
+    movies.forEach(movie => {
+      const col = document.createElement('div');
+      col.className = 'col-12 col-sm-6 col-md-4 fade-in';
+      col.innerHTML = `
+        <div class="movie-card">
+          <img src="${movie.img}" alt="Movie Poster">
+          <div class="card-content">
+            <h5>${movie.title}</h5>
+            <p>${movie.desc}</p>
+            <span>Date: ${movie.date}</span>
+          </div>
+        </div>`;
+      movieGrid.appendChild(col);
+    });
+
+    // Scroll animation
+    const fadeInElements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    fadeInElements.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community Page - AEXLAB Style</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .navbar {
+      background-color: #111;
+      border-bottom: 2px solid #1e90ff;
+      padding: 10px 0;
+    }
+
+    .navbar-brand img {
+      width: 40px;
+    }
+
+    .navbar-nav .nav-link {
+      color: #ccc;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 10px 15px;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      color: #1e90ff;
+    }
+
+    .navbar-nav .nav-link.active::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #1e90ff;
+      border-radius: 50px;
+    }
+
+    .section-box {
+      margin-top: 80px;
+      padding: 20px;
+      background-color: #111;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .list-group-item {
+      border: none;
+      font-weight: bold;
+      padding: 15px 20px;
+      border-radius: 8px;
+      background-color: #333;
+      color: #fff;
+      margin-bottom: 10px;
+      transition: background-color 0.3s;
+    }
+
+    .list-group-item.active {
+      background-color: #1e90ff;
+      color: #fff;
+    }
+
+    .list-group-item:hover {
+      background-color: #1e90ff;
+      color: #fff;
+    }
+
+    .table {
+      margin-top: 20px;
+      background-color: #222;
+      border-radius: 12px;
+      overflow: hidden;
+      color: #fff; /* Ensure all table text is white */
+    }
+
+    .table th,
+    .table td {
+      padding: 15px;
+      vertical-align: middle;
+      color: #fff; /* Ensure all table text is white */
+    }
+
+    .table thead th {
+      background-color: #1e90ff;
+      color: white;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .table tbody tr {
+      background-color: #333; /* Ensure rows have enough contrast */
+    }
+
+    .table tbody tr:hover {
+      background-color: #444;
+    }
+
+    .pagination-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .pagination .page-item .page-link {
+      border-radius: 50px;
+      color: #fff;
+      background-color: #333;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .pagination .page-item .page-link:hover {
+      background-color: #1e90ff;
+      color: #fff;
+    }
+
+    .pagination .page-item.active .page-link {
+      background-color: #1e90ff;
+      border-color: #1e90ff;
+      color: #fff;
+    }
+
+    @media (min-width: 992px) {
+      .aside-section {
+        flex-basis: 20%;
+        max-width: 20%;
+      }
+
+      .main-section {
+        flex-basis: 80%;
+        max-width: 80%;
+      }
+    }
+
+    @media (max-width: 991.98px) {
+      .aside-section,
+      .main-section {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <a class="navbar-brand" href="#">
+      <img src="./logo.png" alt="Cinema Logo">
+      Cinema
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="home.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="community.html">Community</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="container section-box">
+    <h1 class="text-center mb-4" style="color: #1e90ff;">Community</h1>
+    <div class="row">
+      <!-- Aside Section -->
+      <aside class="aside-section col-lg-2">
+        <div class="list-group" id="sidebar">
+          <a href="#" class="list-group-item list-group-item-action active" data-content="box-office">Box Office</a>
+          <a href="#" class="list-group-item list-group-item-action" data-content="movies">Movies</a>
+          <a href="#" class="list-group-item list-group-item-action" data-content="genres">Genres</a>
+          <a href="#" class="list-group-item list-group-item-action" data-content="actors">Actors</a>
+          <a href="#" class="list-group-item list-group-item-action" data-content="directors">Directors</a>
+          <a href="#" class="list-group-item list-group-item-action" data-content="producers">Producers</a>
+          <a href="#" class="list-group-item list-group-item-action" data-content="screenwriters">Screenwriters</a>
+          <a href="#" class="list-group-item list-group-item-action" data-content="cinematographers">Cinematographers</a>
+        </div>
+      </aside>
+
+      <!-- Main Section -->
+      <section class="main-section col-lg-10">
+        <div id="content-box">
+          <!-- Box Office Content (Default) -->
+          <div id="box-office" class="content-item">
+            <div class="mb-4">
+              <p>Welcome to the Box Office section! Here, you can explore the latest box office hits, including rankings and detailed reviews.</p>
+            </div>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">영화 제목</th>
+                  <th scope="col">글 제목</th>
+                  <th scope="col">작성자</th>
+                  <th scope="col">작성 시간</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Great Movie Title</td>
+                  <td>Best Movie Ever</td>
+                  <td>user1</td>
+                  <td>5 minutes ago</td>
+                </tr>
+                <tr>
+                  <td>Another Movie</td>
+                  <td>Amazing Cinematography</td>
+                  <td>user2</td>
+                  <td>10 minutes ago</td>
+                </tr>
+                <tr>
+                  <td>Classic Film</td>
+                  <td>A Timeless Masterpiece</td>
+                  <td>user3</td>
+                  <td>15 minutes ago</td>
+                </tr>
+                <tr>
+                  <td>Latest Release</td>
+                  <td>Not What I Expected</td>
+                  <td>user4</td>
+                  <td>20 minutes ago</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Movies Content -->
+          <div id="movies" class="content-item" style="display:none;">
+            <div class="mb-4">
+              <p>Welcome to the Movies section! Explore our extensive collection of films, from timeless classics to the latest releases. Join the discussion and share your reviews.</p>
+            </div>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">영화 제목</th>
+                  <th scope="col">리뷰 제목</th>
+                  <th scope="col">리뷰어</th>
+                  <th scope="col">리뷰 시간</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Inception</td>
+                  <td>Mind-Bending Experience</td>
+                  <td>userA</td>
+                  <td>1 hour ago</td>
+                </tr>
+                <tr>
+                  <td>The Godfather</td>
+                  <td>Masterclass in Filmmaking</td>
+                  <td>userB</td>
+                  <td>2 hours ago</td>
+                </tr>
+                <tr>
+                  <td>Parasite</td>
+                  <td>Social Commentary at its Best</td>
+                  <td>userC</td>
+                  <td>3 hours ago</td>
+                </tr>
+                <tr>
+                  <td>Avengers: Endgame</td>
+                  <td>A Fitting Conclusion</td>
+                  <td>userD</td>
+                  <td>4 hours ago</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Actors Content -->
+          <div id="actors" class="content-item" style="display:none;">
+            <div class="mb-4">
+              <p>Welcome to the Actors section! Get to know the talented actors behind your favorite movies. Read about their latest performances and upcoming projects.</p>
+            </div>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">배우 이름</th>
+                  <th scope="col">영화 제목</th>
+                  <th scope="col">역할</th>
+                  <th scope="col">출연 시간</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Leonardo DiCaprio</td>
+                  <td>The Revenant</td>
+                  <td>Hugh Glass</td>
+                  <td>1 day ago</td>
+                </tr>
+                <tr>
+                  <td>Meryl Streep</td>
+                  <td>The Iron Lady</td>
+                  <td>Margaret Thatcher</td>
+                  <td>2 days ago</td>
+                </tr>
+                <tr>
+                  <td>Denzel Washington</td>
+                  <td>Training Day</td>
+                  <td>Alonzo Harris</td>
+                  <td>3 days ago</td>
+                </tr>
+                <tr>
+                  <td>Natalie Portman</td>
+                  <td>Black Swan</td>
+                  <td>Nina Sayers</td>
+                  <td>4 days ago</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination-container">
+      <nav aria-label="Page navigation">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    // Function to handle sidebar click events
+    document.getElementById('sidebar').addEventListener('click', function (e) {
+      e.preventDefault();
+      if (e.target && e.target.classList.contains('list-group-item')) {
+        // Remove active class from all items
+        document.querySelectorAll('.list-group-item').forEach(function (item) {
+          item.classList.remove('active');
+        });
+
+        // Add active class to the clicked item
+        e.target.classList.add('active');
+
+        // Hide all content items
+        document.querySelectorAll('.content-item').forEach(function (content) {
+          content.style.display = 'none';
+        });
+
+        // Show the selected content item
+        const contentId = e.target.getAttribute('data-content');
+        document.getElementById(contentId).style.display = 'block';
+      }
+    });
+  </script>
+</body>
+
+</html>

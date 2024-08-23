@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            border: 2px solid black;
+            padding: 100px;
+            margin: 50px;
+            background-color: yellow;
+        }
+        /* .content-box의 전체 너비는 몇일까요?*/
+        /* .content-box: content의 width가 100px + 테두리 두께 4px+ padding 20px */
+        .content-box{
+            box-sizing: content-box;
+        }
+        /*.border-box의 전체 너비는 몇일까요? */
+        /* .border-box : 테두리(border)를 포함한 전체 영역에 적용 */
+        .border-box{
+            box-sizing: border-box;
+        }
+        .padding-box{
+            box-sizing: padding-box;
+        }
+        .margin-box{
+            box-sizing: margin-box;
+        }
+    </style>
+</head>
+
+<body>
+    <!--div.box{content-box}*2-->
+    <div class="box content-box">content-box</div>
+    <div class="box border-box">border-box</div>
+    <div class="box padding-box">padding-box</div>
+    <div class="box margin-box">margin-box</div>
+
+
+</body>
+</html>
